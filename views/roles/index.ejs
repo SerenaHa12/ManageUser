@@ -1,0 +1,71 @@
+<div>
+  <h1>Roles Management</h1>
+  <a href="/roles/add" class="btn btn-primary my-2">Thêm mới</a>
+  <!-- form -->
+  <form action="" class="mb-3">
+    <div class="row">
+      <div class="col-3 flex">
+        <input
+          type="search"
+          name="keyword"
+          placeholder="Từ khóa ..."
+          class="form-control"
+          value="<%= req.query.keyword %>"
+        />
+      </div>
+      <div class="col-2 d-grid">
+        <button class="btn btn-primary">Search</button>
+      </div>
+    </div>
+  </form>
+
+  <!-- bảng danh sách -->
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th width="5%">STT</th>
+        <th>Tên</th>
+        <th>Thời gian</th>
+        <th width="5%">Sửa</th>
+        <th width="5%">Xóa</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% roles.forEach((role, index) => { %>
+      <tr>
+        <td><%= index+1 %></td>
+        <td><%= role.name %></td>
+        <td><%= moment(role.created_at).format('DD/MM/YYYY HH:mm:ss') %></td>
+        <td>
+          <a href="/roles/edit/<%= role.id %>" class="btn btn-warning">Sửa</a>
+        </td>
+        <td>
+          <form
+            action="/roles/delete/<%= role.id %>"
+            onsubmit="return confirm('Bạn có chắc?')"
+            method="post"
+          >
+            <button class="btn btn-danger">Xóa</button>
+          </form>
+        </td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+
+  <ul class="pagination">
+    <% if (page > 1) { %>
+    <li class="page-item">
+      <a class="page-link" href="?page=<%= +page-1 %>">Trước</a>
+    </li>
+    <% } %> <% for( let index = 1; index <= totalPage; index++ ) { %>
+    <li class="page-item <%= page == index ? 'active': '' %>">
+      <a class="page-link" href="?page=<%= index %>"><%= index %></a>
+    </li>
+    <% } %> <% if (page < totalPage) { %>
+    <li class="page-item">
+      <a class="page-link" href="?page=<%= +page+1 %>">Sau</a>
+    </li>
+    <% } %>
+  </ul>
+</div>

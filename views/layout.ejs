@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar -->
+        <%- include('./partials/header.ejs') %>
+
+        <!-- Body Content -->
+        <main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-4 mt-4">
+          <%- body %>
+        </main>
+      </div>
+
+      <!-- Footer -->
+      <footer class="fixed-bottom bg-light text-center p-3">
+        <%- include('./partials/footer.ejs') %>
+      </footer>
+    </div>
+  </body>
+</html>
