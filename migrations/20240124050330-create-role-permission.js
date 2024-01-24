@@ -18,9 +18,19 @@ module.exports = {
       },
       role_id: {
         type: Sequelize.INTEGER,
+        name: "role_permission_role_id_foreign",
+        references: {
+          table: "roles",
+          field: "id",
+        },
       },
       permission_id: {
         type: Sequelize.INTEGER,
+        name: "role_permission_permission_id_foreign",
+        references: {
+          table: "permissions",
+          field: "id",
+        },
       },
       created_at: {
         type: Sequelize.DATE,

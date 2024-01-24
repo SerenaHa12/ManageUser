@@ -18,9 +18,19 @@ module.exports = {
       },
       user_id: {
         type: Sequelize.INTEGER,
+        name: "user_role_user_id_foreign",
+        references: {
+          table: "users",
+          field: "id",
+        },
       },
       role_id: {
         type: Sequelize.INTEGER,
+        name: "user_role_role_id_foreign",
+        references: {
+          table: "roles",
+          field: "id",
+        },
       },
       created_at: {
         type: Sequelize.DATE,
