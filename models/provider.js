@@ -9,7 +9,6 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-
       // liên kết khóa ngoại
       Provider.hasMany(models.User, {
         foreignKey: "provider_id",

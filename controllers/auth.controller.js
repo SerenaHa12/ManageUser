@@ -5,3 +5,7 @@ module.exports = {
     res.render("auth/login", { error });
   },
 };
+// sao kmail
+// tại vercel t đăng ky sbanwgf git
+// login bằng email nhanh hơn
+// h thoat skieuer gi nhictrl + c
