@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "dev": "nodemon ./bin/www",
+    "start": "node ./bin/www",
     "postinstall": "npx sequelize-cli db:migrate",
     "build": "npm run postinstall && npm run vercel-build"
   },
